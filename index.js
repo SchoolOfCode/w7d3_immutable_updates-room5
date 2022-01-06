@@ -12,19 +12,21 @@ export function addToBeginning(array, item) {
 
 // Immutably insert an item at a specific position/index within an array
 export function insertItem(array, item, index) {
-   const immute=[...array.slice(0,index), item, ...array.slice(index)];
-   return immute
+  const immute = [...array.slice(0, index), item, ...array.slice(index)];
+  return immute;
 }
 
 // Immutably replace an item at a specific position/index within an array
 export function replaceItem(array, item, index) {
-       const immute=[...array.slice(0,index), item, ...array.slice(index+1)];
-    return immute
+  const immute = [...array.slice(0, index), item, ...array.slice(index + 1)];
+  return immute;
 }
 
 // Immutably remove an item at a specific position/index within an array
-export function removeItem(array, index) {}
-
+export function removeItem(array, index) {
+  const immute = [...array.slice(0, index), ...array.slice(index + 1)];
+  return immute;
+}
 //Objects:
 
 // Immutably update the object so that the value under the "name" property becomes the new name
@@ -32,7 +34,10 @@ export function removeItem(array, index) {}
 //     updateName({ name: "Abe" }, "Barbara")
 // should give back:
 //     { name: "Barbara"}
-export function updateName(object, newName) {}
+export function updateName(object, newName) {
+  const immute = { ...object, name: newName };
+  return immute;
+}
 
 // Immutably update the object so that the value under the "needsACupOfTea" property becomes the opposite of what it was.
 // Any other properties in the object should be maintained.
@@ -40,7 +45,10 @@ export function updateName(object, newName) {}
 //     toggleTeaStatus({ name: "Abe", needsACupOfTea: false })
 // should give back:
 //     { name: "Abe", needsACupOfTea: true }
-export function toggleTeaStatus(object) {}
+export function toggleTeaStatus(object) {
+  const immute = { ...object, needsACupOfTea: ! };
+  return immute;
+}
 
 // Combo Time!!
 

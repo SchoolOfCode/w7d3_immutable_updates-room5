@@ -46,10 +46,15 @@ export function updateName(object, newName) {
 // should give back:
 //     { name: "Abe", needsACupOfTea: true }
 export function toggleTeaStatus(object) {
-  const immute = { ...object, needsACupOfTea: ! };
+  const immute = { ...object, needsACupOfTea: !object.needsACupOfTea };
   return immute;
 }
 
+const list = [
+  { task: "Do washing up", completed: false },
+  { task: "Do code wars", completed: false },
+  { task: "Send post card", completed: false },
+];
 // Combo Time!!
 
 // Immutably update the array as well as the object at the given position/index within the array, so that the value under the "completed" property becomes the opposite of what it was.
@@ -58,4 +63,15 @@ export function toggleTeaStatus(object) {
 //    toggleListItemCompleted([{ task: "Cooking", completed: true }, { task: "Walking", completed: false }], 1)
 // should give back:
 //    [{ task: "Cooking", completed: true }, { task: "Walking", completed: true }]
-export function toggleListItemCompleted(array, index) {}
+export function toggleListItemCompleted(array, index) {
+  const object = array[index];
+
+  // const immute = [
+  //   array.map(function (a) {
+  //     return { ...object, completed: !a.completed };
+  //   }),
+  // ];
+  console.log(object);
+  return immute;
+}
+// toggleListItemCompleted(list, 0);
